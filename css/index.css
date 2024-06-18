@@ -1,0 +1,464 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* Menünüzün arkaplan rengi */
+  z-index: 1000; /* Diğer elementlerin üzerinde kalması için */
+  transition: opacity 0.3s ease; /* Opaklık geçiş efekti */
+}
+.navbar.hidden {
+  opacity: 0; /* Görünürlüğü sıfıra düşürerek menünün yavaşça kaybolmasını sağlar */
+}
+.menu_a
+{
+  font-family: "Montserrat", sans-serif;
+}
+.menu_baslik
+{
+  font-family: "Lora", serif;
+  font-style: normal;
+  letter-spacing: 5px;
+  font-size: 25px;
+}
+
+
+
+.custom-search-input {
+  border: none;
+  border-bottom: 2px solid black; /* Sadece alt çizgi */
+  border-radius: 0;
+  padding-right: 30px;
+  width: 200px;
+  transition: width 0.3s ease;
+  font-size: 16px;
+}
+
+.custom-search-input:focus {
+  box-shadow: none;
+  border-color: black; /* Odaklandığında alt çizgi rengini değiştirme */
+  width: 300px; /* Odaklandığında genişliği artırma */
+}
+
+.custom-search-input::placeholder {
+  color: #6c757d; /* Placeholder rengi */
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px; /* Input alanının sağ iç kısmına yerleştirme */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button i {
+  color: black; /* İkon rengi */
+}
+
+.search-button:focus {
+  outline: none; /* Odaklandığında varsayılan odak çerçevesini kaldırma */
+}
+
+.scrollable-list {
+  max-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: max-width 0.3s ease, max-height 0.3s ease;
+  display: none; /* Başlangıçta gizli olacak */
+}
+.list-group-item {
+  cursor: pointer;
+  width: 285px;
+  transition: max-width 0.3s ease;
+  overflow: hidden;
+}
+.list-group-item-empty {
+  cursor: pointer;
+  width: 296px;
+  pointer-events: none;
+  text-decoration: none; /* Gerekirse tıklanabilir görünümü kaldır */
+  color: inherit; /* Gerekirse link rengini kalıtım al */
+}
+.list-group-item.expanded {
+  max-width: 900px; /* Genişlediğinde tam genişlik */
+  opacity: 1; /* Görünür hale getir */
+}
+.empty-message {
+  display: none; /* Boş liste durumunda mesajı gizle */
+}
+.list-group-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.list-group-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-outline-dark {
+  border: none; /* Kenarlık kaldırma */
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+  color: #000 !important; /* Metin rengini siyah yap */
+}
+.btn-outline-dark:focus, .btn-outline-dark:active {
+  box-shadow: none !important; /* Odaklandığında ve tıklandığında gölge efekti kaldır */
+  outline: none !important; /* Odaklandığında mavi çerçeveyi kaldır */
+}
+
+.custom-icon {
+  font-size: 30px; /* İkonun boyutunu istediğiniz piksel cinsinden belirleyin */
+  vertical-align: middle; /* Opsiyonel: İkonu diğer içeriklerle dikey olarak hizalayabilirsiniz */
+}
+
+.cart-button {
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+}
+.cart-icon {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+.bg_bg {
+  background-image: url('../img/bg_bg.png');
+  background-size: cover;
+}
+.bg-photo
+{
+  margin-top: 1px;
+  margin-left: 12px;
+}
+.h1_yeniurun
+{
+  letter-spacing: 2px;
+  font-family: "Raleway", sans-serif;
+  font-style: normal;
+  font-size: small;
+  color:White;
+  margin-top: 250px;
+  margin-left: 200px;
+}
+.h1_metalikler
+{
+  color:White;
+  margin-left: 200px;
+  margin-top: 15px;
+  font-family: "Playfair Display", serif;
+  font-size: 55px;
+  font-weight: bold;
+}
+.h1_parlasin
+{
+  color:White;
+  margin-left: 200px;
+  margin-top: -15px;
+  font-size: 55px;
+  font-style: italic;
+  font-weight: normal;
+  font-family: "EB Garamond", serif;
+}
+.h1_urunler
+{
+  color:#3d3c28 ;
+  font-style: italic;
+  font-weight: normal;
+  font-family: "EB Garamond", serif;
+}
+.p_baslangic
+{
+  color:White;
+  margin-left: 200px;
+  margin-top: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  font-size:small;
+}
+.custom-button-baslangic
+{
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 23px;
+    font-size: 0.8rem;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 200px;
+    margin-top: 15px;
+}
+.custom-button-baslangic:hover {
+  background-color: white;
+  color: black;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+.fade-in.delay-1 {
+  animation-delay: 1s;
+}
+.fade-in.delay-2 {
+  animation-delay: 2s;
+}
+.fade-in.delay-3 {
+  animation-delay: 3s;
+}
+.fade-in.delay-4 {
+  animation-delay: 4s;
+}
+.fade-in.delay-5 {
+  animation-delay: 5s;
+}
+@keyframes fadeIn 
+{
+  to 
+  {
+    opacity: 1;
+  }
+}
+.slide-in {
+  transform: translateX(100%);
+  animation: slideIn 1s forwards;
+}
+.slide-in.delay-2 {
+  animation-delay: 2s;
+}
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .h1_yeniurun, .h1_metalikler, .h1_parlasin, .p_baslangic{
+      margin-left: 20px;
+      text-align: center;
+  }
+  .custom-button-baslangic 
+  {
+    display: block;
+    text-align: center;
+    margin: auto; 
+  }
+  .h1_yeniurun {
+      margin-top: 50px;
+      font-size: 1.2rem;
+  }
+  .h1_metalikler, .h1_parlasin {
+      font-size: 2rem;
+      margin-top: 10px;
+  }
+  .p_baslangic {
+      font-size: 0.9rem;
+      margin-top: 10px;
+  }
+  .custom-button-baslangic {
+      font-size: 0.9rem;
+      margin-top: 15px;
+      padding: 10px 20px;
+  }
+  .bg-photo {
+      margin-top: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+}
+@media (max-width: 1500px) {
+  .h1_yeniurun, .h1_metalikler, .h1_parlasin, .p_baslangic{
+      margin-left: 20px;
+      text-align: center;
+  }
+  .custom-button-baslangic 
+  {
+    display: block;
+    text-align: center;
+    margin: auto; 
+  }
+  .h1_yeniurun {
+      margin-top: 50px;
+      font-size: 1.2rem;
+  }
+  .h1_metalikler, .h1_parlasin {
+      font-size: 2rem;
+      margin-top: 10px;
+  }
+  .p_baslangic {
+      font-size: 0.9rem;
+      margin-top: 10px;
+  }
+  .custom-button-baslangic {
+      font-size: 0.9rem;
+      margin-top: 15px;
+      padding: 10px 20px;
+  }
+  .bg-photo {
+      margin-top: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.card-wrapper
+{
+  display: flex;
+  gap: 0px;
+  margin-left:30px;
+}
+.card-wrapper-wrap
+{
+  margin-left: 75px;
+}
+.card
+{
+  margin-left: 50px;
+  width:calc(100%4);
+  border: none;
+  
+}
+@media screen and (min-width: 1031px) and (max-width: 1300px) {
+  .card:nth-child(-n+3) {
+    display: block;
+  }
+  
+  /* Dördüncü ve sonrasındaki kartları gizlemek için */
+  .card:nth-child(n+4) {
+    display: none;
+  }
+}
+@media screen and (min-width: 751px) and (max-width: 1030px) {
+  /* İlk iki kartı göstermek için */
+  .card:nth-child(-n+2) {
+    display: block;
+  }
+
+  /* Diğer kartları gizlemek için */
+  .card:nth-child(n+3) {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  /* İlk iki kartı göstermek için */
+  .card:not(:first-child) {
+    display: none;
+  }
+}
+
+.image-wrapper
+{
+  height:28vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-wrapper img
+{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+
+.carousel-control-prev {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    margin-left: 25px;
+}
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  margin-right: 25px;
+}
+
+.card_header
+{
+  color:#6a685e;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size:medium;
+}
+.h1_koleksiyon
+{
+  color:#fffdc3;
+  font-family: "Junge", cursive;
+  font-style: normal;
+  font-size: 40px;
+  font-weight: bold;
+}
+.p_koleksiyon
+{
+  padding-top: 90px;
+  color:#fffdc3;
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  font-size:large;
+}
+
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+.footer a {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #adb5bd;
+  text-decoration: underline;
+}
+.footer .social-icons a {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+/* Tüm <a> etiketlerini sıfırla */
+.card_a {
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  cursor: auto; /* Varsayılan imleci kullan */
+  background-color: transparent; /* Arka plan rengini kaldır */
+  float: left;
+  
+}
+
+/* Ziyaret edilmiş link rengini sıfırla */
+.card_a:visited {
+  color: inherit; /* Ziyaret edilmiş link rengini miras al */
+}
+
+/* Hover durumunda rengi değiştirmeyi sıfırla */
+.card_a:hover {
+  color: inherit; /* Üzerine gelindiğinde link rengini miras al */
+}
+
+/* Aktif (tıklandığında) link rengini sıfırla */
+.card_a:active {
+  color: inherit; /* Tıklanıldığında link rengini miras al */
+}

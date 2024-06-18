@@ -1,0 +1,297 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* Menünüzün arkaplan rengi */
+  z-index: 1000; /* Diğer elementlerin üzerinde kalması için */
+  transition: opacity 0.3s ease; /* Opaklık geçiş efekti */
+}
+.navbar.hidden {
+  opacity: 0; /* Görünürlüğü sıfıra düşürerek menünün yavaşça kaybolmasını sağlar */
+}
+.menu_a
+{
+  font-family: "Montserrat", sans-serif;
+}
+.menu_baslik
+{
+  font-family: "Lora", serif;
+  font-style: normal;
+  letter-spacing: 5px;
+  font-size: 25px;
+}
+
+
+
+.custom-search-input {
+  border: none;
+  border-bottom: 2px solid black; /* Sadece alt çizgi */
+  border-radius: 0;
+  padding-right: 30px;
+  width: 200px;
+  transition: width 0.3s ease;
+  font-size: 16px;
+}
+
+.custom-search-input:focus {
+  box-shadow: none;
+  border-color: black; /* Odaklandığında alt çizgi rengini değiştirme */
+  width: 300px; /* Odaklandığında genişliği artırma */
+}
+
+.custom-search-input::placeholder {
+  color: #6c757d; /* Placeholder rengi */
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px; /* Input alanının sağ iç kısmına yerleştirme */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button i {
+  color: black; /* İkon rengi */
+}
+
+.search-button:focus {
+  outline: none; /* Odaklandığında varsayılan odak çerçevesini kaldırma */
+}
+
+.scrollable-list {
+  max-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: max-width 0.3s ease, max-height 0.3s ease;
+  display: none; /* Başlangıçta gizli olacak */
+}
+.list-group-item {
+  cursor: pointer;
+  width: 285px;
+  transition: max-width 0.3s ease;
+  overflow: hidden;
+}
+.list-group-item-empty {
+  cursor: pointer;
+  width: 296px;
+  pointer-events: none;
+  text-decoration: none; /* Gerekirse tıklanabilir görünümü kaldır */
+  color: inherit; /* Gerekirse link rengini kalıtım al */
+}
+.list-group-item.expanded {
+  max-width: 900px; /* Genişlediğinde tam genişlik */
+  opacity: 1; /* Görünür hale getir */
+}
+.empty-message {
+  display: none; /* Boş liste durumunda mesajı gizle */
+}
+.list-group-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.list-group-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-outline-dark {
+  border: none; /* Kenarlık kaldırma */
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+  color: #000 !important; /* Metin rengini siyah yap */
+}
+.btn-outline-dark:focus, .btn-outline-dark:active {
+  box-shadow: none !important; /* Odaklandığında ve tıklandığında gölge efekti kaldır */
+  outline: none !important; /* Odaklandığında mavi çerçeveyi kaldır */
+}
+
+.custom-icon {
+  font-size: 30px; /* İkonun boyutunu istediğiniz piksel cinsinden belirleyin */
+  vertical-align: middle; /* Opsiyonel: İkonu diğer içeriklerle dikey olarak hizalayabilirsiniz */
+}
+
+.cart-button {
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+}
+.cart-icon {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+.satis_gecis_p
+{
+  font-family: "DM Sans", sans-serif;
+  font-weight: normal;
+  font-size:medium;
+}
+.satis_gecis_gozat
+{
+  font-family: "Junge", cursive;
+  font-style: normal;
+  font-size: 28px;
+  font-weight: bold;
+}
+.list-unstyled li 
+{
+  margin-top: 5px;
+}
+.list-unstyled li a
+{
+  text-decoration: none;
+  color: black;
+  transition: text-decoration 0.3s ease,color 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  font-size:medium;
+}
+.list-unstyled .aktif
+{
+  color: #d8c89e;
+}
+
+
+
+
+.list-unstyled li a:hover 
+{
+  text-decoration: underline;
+  color: #d8c89e;
+}
+.sidebar {
+  padding: 20px;
+  border-right: 1px solid #000;
+  height: 550px;
+
+}
+.sidebar .divider {
+  border-top: 1px solid #999;
+  margin: 10px 0;
+}
+.mb-5 {
+  margin-bottom: 5rem;
+}
+.product-title {
+  font-size: 4rem;
+  margin-top: 20px;
+  font-family: "Junge", cursive;
+  font-weight: normal;
+}
+.product-count {
+  font-size: 1rem;
+  color: gray;
+}
+.product {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 400px;
+  margin: auto;
+  margin-top: 30px;
+}
+.product img {
+  width: 100%;
+  height: auto;
+}
+.product .product-name {
+  color:#3d3c28 ;
+  font-style: italic;
+  font-weight: normal;
+  font-family: "EB Garamond", serif;
+}
+.product .product-description {
+  font-size: 1rem;
+  color: gray;
+}
+
+
+
+.price-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-label span {
+  cursor: pointer;
+  font-size: 24px;
+  color: black;
+}
+.price-slider {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+.noUi-handle {
+  background-color: black;
+  border-radius: 50%;
+}
+.noUi-connect {
+  background-color: black;
+}
+.price-details {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+.maxvalue-right {
+  float: right;
+}
+.satis_gecis_fiyat {
+  font-family: "DM Sans", sans-serif;
+  font-weight: lighter;
+  font-size: medium;
+}
+
+/* Tüm <a> etiketlerini sıfırla */
+.a_satis {
+  color: inherit; /* Varsayılan link rengini miras al */
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  cursor: auto; /* Varsayılan imleci kullan */
+  background-color: transparent; /* Arka plan rengini kaldır */
+  float: left;
+}
+
+/* Ziyaret edilmiş link rengini sıfırla */
+.a_satis:visited {
+  color: inherit; /* Ziyaret edilmiş link rengini miras al */
+}
+
+/* Hover durumunda rengi değiştirmeyi sıfırla */
+.a_satis:hover {
+  color: inherit; /* Üzerine gelindiğinde link rengini miras al */
+}
+
+/* Aktif (tıklandığında) link rengini sıfırla */
+.a_satis:active {
+  color: inherit; /* Tıklanıldığında link rengini miras al */
+}
+
+.active {
+  color: #fff; /* Renk burada belirlenir */
+}

@@ -1,0 +1,386 @@
+*
+{
+  margin: 0px;
+  padding: 0px;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* Menünüzün arkaplan rengi */
+  z-index: 1000; /* Diğer elementlerin üzerinde kalması için */
+  transition: opacity 0.3s ease; /* Opaklık geçiş efekti */
+}
+.navbar.hidden {
+  opacity: 0; /* Görünürlüğü sıfıra düşürerek menünün yavaşça kaybolmasını sağlar */
+}
+.menu_a
+{
+  font-family: "Montserrat", sans-serif;
+}
+.menu_baslik
+{
+  font-family: "Lora", serif;
+  font-style: normal;
+  letter-spacing: 5px;
+  font-size: 25px;
+}
+
+
+
+.custom-search-input {
+  border: none;
+  border-bottom: 2px solid black; /* Sadece alt çizgi */
+  border-radius: 0;
+  padding-right: 30px;
+  width: 200px;
+  transition: width 0.3s ease;
+  font-size: 16px;
+}
+
+.custom-search-input:focus {
+  box-shadow: none;
+  border-color: black; /* Odaklandığında alt çizgi rengini değiştirme */
+  width: 300px; /* Odaklandığında genişliği artırma */
+}
+
+.custom-search-input::placeholder {
+  color: #6c757d; /* Placeholder rengi */
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0px; /* Input alanının sağ iç kısmına yerleştirme */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button i {
+  color: black; /* İkon rengi */
+}
+
+.search-button:focus {
+  outline: none; /* Odaklandığında varsayılan odak çerçevesini kaldırma */
+}
+
+.scrollable-list {
+  max-width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: max-width 0.3s ease, max-height 0.3s ease;
+  display: none; /* Başlangıçta gizli olacak */
+}
+.list-group-item {
+  cursor: pointer;
+  width: 285px;
+  transition: max-width 0.3s ease;
+  overflow: hidden;
+}
+.list-group-item-empty {
+  cursor: pointer;
+  width: 296px;
+  pointer-events: none;
+  text-decoration: none; /* Gerekirse tıklanabilir görünümü kaldır */
+  color: inherit; /* Gerekirse link rengini kalıtım al */
+}
+.list-group-item.expanded {
+  max-width: 900px; /* Genişlediğinde tam genişlik */
+  opacity: 1; /* Görünür hale getir */
+}
+.empty-message {
+  display: none; /* Boş liste durumunda mesajı gizle */
+}
+.list-group-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.list-group-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.btn-outline-dark {
+  border: none; /* Kenarlık kaldırma */
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+  color: #000 !important; /* Metin rengini siyah yap */
+}
+.btn-outline-dark:focus, .btn-outline-dark:active {
+  box-shadow: none !important; /* Odaklandığında ve tıklandığında gölge efekti kaldır */
+  outline: none !important; /* Odaklandığında mavi çerçeveyi kaldır */
+}
+
+.custom-icon {
+  font-size: 30px; /* İkonun boyutunu istediğiniz piksel cinsinden belirleyin */
+  vertical-align: middle; /* Opsiyonel: İkonu diğer içeriklerle dikey olarak hizalayabilirsiniz */
+}
+
+.cart-button {
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent !important; /* Arkaplan rengini şeffaf yap */
+}
+.cart-icon {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+
+
+.hakimizda
+{
+  max-width: 500px;
+  height: 600px;
+  border: none;
+  border-left: 1px solid #6c757d;
+  margin-left: 100px;
+}
+.h1-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  padding-top: 20px;
+  text-indent: 80px;
+}
+.h1-hakkimizda-iddali
+{
+  width: 400px;
+  height: 150px;
+  border:none;
+  border-left: 3px solid black;
+  margin-top: 55px;
+  text-indent: 77px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.h1-hakkimizda-iddali1
+{
+  height: 40px;
+  text-indent: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-top: -110px;
+}
+.h1-hakkimizda-iddali2
+{
+  height: 40px;
+  text-indent: 80px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.p-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  width: 420px;
+  margin-left: 80px;
+  margin-top: 120px;
+}
+
+
+
+@media screen and (min-width: 1031px) and (max-width: 1201px) {
+  
+.hakimizda
+{
+  max-width: 500px;
+  height: 600px;
+  border: none;
+  border-left: 1px solid #6c757d;
+  margin-left: 100px;
+}
+.h1-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  padding-top: 20px;
+  text-indent: 20px;
+}
+.h1-hakkimizda-iddali
+{
+  width: 400px;
+  height: 150px;
+  border:none;
+  border-left: 3px solid black;
+  margin-top: 55px;
+  text-indent: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.h1-hakkimizda-iddali1
+{
+  height: 40px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-top: -110px;
+}
+.h1-hakkimizda-iddali2
+{
+  height: 40px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.p-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  width: 420px;
+  margin-left: 20px;
+  margin-top: 120px;
+}
+}
+@media screen and (min-width: 751px) and (max-width: 1030px) {
+  .hakimizda
+{
+  max-width: 500px;
+  height: 600px;
+  border: none;
+  border-left: 1px solid #6c757d;
+  margin-left: 100px;
+}
+.h1-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  padding-top: 20px;
+  text-indent: 20px;
+}
+.h1-hakkimizda-iddali
+{
+  width: 400px;
+  height: 150px;
+  border:none;
+  border-left: 3px solid black;
+  margin-top: 55px;
+  text-indent: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.h1-hakkimizda-iddali1
+{
+  height: 40px;
+  width: 400px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-top: -110px;
+}
+.h1-hakkimizda-iddali2
+{
+  height: 40px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: xx-large;
+}
+.p-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  width: 420px;
+  margin-left: 20px;
+  margin-top: 120px;
+}
+
+}
+
+@media screen and (max-width: 750px) {
+  .hakimizda
+{
+  max-width: 250px;
+  height: 600px;
+  border: none;
+  border-left: 1px solid #6c757d;
+}
+.h1-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  padding-top: 20px;
+  text-indent: 20px;
+}
+.h1-hakkimizda-iddali
+{
+  width: 250px;
+  height: 150px;
+  border:none;
+  border-left: 3px solid black;
+  margin-top: 55px;
+  text-indent: 17px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: small;
+}
+.h1-hakkimizda-iddali1
+{
+  height: 40px;
+  width: 250px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: small;
+  margin-top: -130px;
+}
+.h1-hakkimizda-iddali2
+{
+  height: 40px;
+  text-indent: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: small;
+  margin-top: -20px;
+}
+.p-hakkimizda
+{
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: medium;
+  width: 220px;
+  margin-left: 20px;
+  margin-top: 0px;
+}
+
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+.footer a {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #adb5bd;
+  text-decoration: underline;
+}
+.footer .social-icons a {
+  margin: 0 10px;
+  font-size: 20px;
+}
