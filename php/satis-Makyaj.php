@@ -1,15 +1,13 @@
-<?php session_start(); ?>
 <?php
+include('baglan.php');
+
 if (isset($_SESSION['eposta'])) 
 {
     $_SESSION['uyelik'] = "";
     $eposta = $_SESSION['eposta'];
-    include('baglan.php');
-
-    $email = $_SESSION['eposta'];
 
     $sorgu = $DBcon->prepare("SELECT * FROM login WHERE eposta = :email");
-    $sorgu->bindParam(':email', $email);
+    $sorgu->bindParam(':email', $eposta);
     $sorgu->execute();
     $cikti = $sorgu->fetch(PDO::FETCH_ASSOC);
 
@@ -17,8 +15,6 @@ if (isset($_SESSION['eposta']))
 }
 ?>
 <?php 
-
-include('baglan.php');
 
 $query = $DBcon->query("SELECT * FROM urunler WHERE urun_kategori = 'makyaj'", PDO::FETCH_ASSOC);
 $counter = 0;
@@ -30,7 +26,8 @@ $rowCount = $query->rowCount();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAA</title>
+    <title>ARAL</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -49,6 +46,7 @@ $rowCount = $query->rowCount();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.1/nouislider.min.js"></script>
     <!-- KİŞİSEL -->
     <link rel="stylesheet" href="../css/satis.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Junge&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -127,37 +125,16 @@ $rowCount = $query->rowCount();
         </div>
         <div class="offcanvas-body d-flex ">
         <?php
-                                    if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
-                                        echo "<div class='container' id='cartContent'>";
-                                        echo getCartContentHtml($_SESSION["cart"]);
-                                        echo "</div>";
-                                    } else {
-                                        // Sepet boşsa mesaj göster
-                                        echo "<p class='container' id='cartContent'>Sepet Boş</p>";
-                                    }
-                                    
-                                    function getCartContentHtml($cart) {
-                                        $cartHtml = "";
-                                        foreach ($cart as $item) {
-                                            $cartHtml .= "<div class='border-bottom mb-3'></div>";
-                                            $cartHtml .= "<div class='row mb-3'>";
-                                            $cartHtml .= "<div class='col-md-3'>";
-                                            $cartHtml .= "<img src='../img/" . $item["img"] . "' alt='Ürün Resmi' class='img-fluid'>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<div class='col-md-9'>";
-                                            $cartHtml .= "<h6 class='mb-1'>" . $item['name'] . "</h6>";
-                                            $cartHtml .= "<p class='mb-1'>Ürün Fiyatı: <strong>" . $item['price'] . "₺</strong></p>";
-                                            $cartHtml .= "<div class='input-group mb-2'>";
-                                            $cartHtml .= "<input id='quantity_" . $item['id'] . "' type='number' class='form-control' value='" . $item['quantity'] . "' min='1'>";
-                                            $cartHtml .= "<button class='btn btn-outline-secondary update-cart-btn' type='button' data-id='" . $item['id'] . "'>Güncelle</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<button class='btn btn-danger btn-sm remove-cart-btn' type='button' data-id='" . $item['id'] . "'>Sil</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "</div>";
-                                        }
-                                        return $cartHtml;
-                                    }
-                ?>
+            include('cart_functions.php');
+            if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
+                echo "<div class='container' id='cartContent'>";
+                echo getCartContentHtml($_SESSION["cart"]);
+                echo "</div>";
+            } else {
+                // Sepet boşsa mesaj göster
+                echo "<p class='container' id='cartContent'>Sepet Boş</p>";
+            }
+        ?>
         </div>
     </div>
 <!-- MENU BİTİŞ -->
@@ -247,7 +224,7 @@ $rowCount = $query->rowCount();
                     
                         <div class="col-md-4 product">
                         <a class="a_satis" href="satis_hakkinda.php?urun_id=<?=$id?>">
-                            <img src="../img/<?=$urun_resimi?>" alt="Ürün 1">
+                            <img src="../img/<?=$urun_resimi?>" alt="Ürün 1" class="product-image">
                             <p class="card-title"><?=$urun_adi?></p>
                             <p class="product-description"><?=$urun_fiyati?>,00 ₺</p>
                             </a>

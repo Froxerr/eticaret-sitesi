@@ -1,0 +1,60 @@
+.product-image {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+/* Ürün kartları için hover efekti */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product .product-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.product:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product .card-title {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #333;
+    padding: 0 15px;
+}
+
+.product .product-description {
+    color: #666;
+    font-size: 1rem;
+    padding: 0 15px 15px;
+}
+
+.a_satis {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

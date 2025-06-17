@@ -53,7 +53,8 @@ $gonderim_bilgisi_aciklama=$result1['gonderim_bilgisi_aciklama'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAA</title>
+    <title>ARAL</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
@@ -72,6 +73,32 @@ $gonderim_bilgisi_aciklama=$result1['gonderim_bilgisi_aciklama'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Junge&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <script>
+        $(document).ready(function() {
+            // Sepete ürün ekleme işlemi
+            $("#addToCartForm").on("submit", function(e) {
+                e.preventDefault();
+                
+                $.ajax({
+                    url: "sepet_ekle.php",
+                    method: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        // Sepet içeriğini güncelle
+                        $(".offcanvas-body").html(response);
+                        // Diğer sayfalara bildir
+                        localStorage.setItem("cartContent", response);
+                        localStorage.setItem("cartUpdateTime", new Date().getTime());
+                        // Custom event tetikle
+                        $(document).trigger("cart:updated", [response]);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <!-- MENU BAŞLANGIÇ -->
@@ -144,34 +171,15 @@ $gonderim_bilgisi_aciklama=$result1['gonderim_bilgisi_aciklama'];
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body d-flex ">
-                                <div id="cartContent">
                                 <?php
+                                include('cart_functions.php');
                                     if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
+                                    echo "<div class='container' id='cartContent'>";
                                         echo getCartContentHtml($_SESSION["cart"]);
+                                    echo "</div>";
                                     } else {
-                                        echo "<p>Sepet Boş</p>";
-                                    }
-
-                                    function getCartContentHtml($cart) {
-                                        $cartHtml = "";
-                                        foreach ($cart as $item) {
-                                            $cartHtml .= "<div class='border-bottom mb-3'></div>";
-                                            $cartHtml .= "<div class='row mb-3'>";
-                                            $cartHtml .= "<div class='col-md-3'>";
-                                            $cartHtml .= "<img src='../img/" . $item["img"] . "' alt='Ürün Resmi' class='img-fluid'>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<div class='col-md-9'>";
-                                            $cartHtml .= "<h6 class='mb-1'>" . $item['name'] . "</h6>";
-                                            $cartHtml .= "<p class='mb-1'>Ürün Fiyatı: <strong>" . $item['price'] . "₺</strong></p>";
-                                            $cartHtml .= "<div class='input-group mb-2'>";
-                                            $cartHtml .= "<input id='quantity_" . $item['id'] . "' type='number' class='form-control' value='" . $item['quantity'] . "' min='1'>";
-                                            $cartHtml .= "<button class='btn btn-outline-secondary update-cart-btn' type='button' data-id='" . $item['id'] . "'>Güncelle</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<button class='btn btn-danger btn-sm remove-cart-btn' type='button' data-id='" . $item['id'] . "'>Sil</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "</div>";
-                                        }
-                                        return $cartHtml;
+                                    // Sepet boşsa mesaj göster
+                                    echo "<p class='container' id='cartContent'>Sepet Boş</p>";
                                     }
                 ?>
                             </div>
@@ -225,8 +233,11 @@ $gonderim_bilgisi_aciklama=$result1['gonderim_bilgisi_aciklama'];
                             <p class="urun_stokkodu">Stok Kodu: <?=$urun_stokkod?></p>
                             <p class="urun_ucret"><?=$urun_fiyati?>,00₺</p>
                             <p class="urun_adet">Adet</p>
-                            <input type="number" id="quantityInput" value="1" class="form-control number-input" style="width: 70px;">
-                                                                    <button class="btn btn-primary mt-5 add-to-cart" data-product="<?=$urun_detay_id?>">Sepete Ekle</button>
+                            <form id="addToCartForm">
+                                <input type="hidden" name="product_id" value="<?=$urun_detay_id?>">
+                                <input type="number" name="quantity" id="quantityInput" value="1" class="form-control number-input" style="width: 70px;">
+                                <button type="submit" class="btn btn-primary mt-5 add-to-cart">Sepete Ekle</button>
+                            </form>
                             <div class="row mt-5">
                                 <div class="col-md-12 mt-2">
                                     <div class="box">
@@ -278,5 +289,6 @@ $gonderim_bilgisi_aciklama=$result1['gonderim_bilgisi_aciklama'];
     <script src="../js/script3.js"></script>
     <script src="../js/script5.js"></script>
     <script src="../js/script8.js"></script>
+    <script src="../js/script11.js"></script>
 </body>
 </html>

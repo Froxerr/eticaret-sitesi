@@ -21,7 +21,8 @@ if (isset($_SESSION['eposta']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAA</title>
+    <title>ARAL</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
@@ -117,37 +118,16 @@ if (isset($_SESSION['eposta']))
         </div>
         <div class="offcanvas-body d-flex ">
         <?php
-                                    if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
-                                        echo "<div class='container' id='cartContent'>";
-                                        echo getCartContentHtml($_SESSION["cart"]);
-                                        echo "</div>";
-                                    } else {
-                                        // Sepet boşsa mesaj göster
-                                        echo "<p class='container' id='cartContent'>Sepet Boş</p>";
-                                    }
-                                    
-                                    function getCartContentHtml($cart) {
-                                        $cartHtml = "";
-                                        foreach ($cart as $item) {
-                                            $cartHtml .= "<div class='border-bottom mb-3'></div>";
-                                            $cartHtml .= "<div class='row mb-3'>";
-                                            $cartHtml .= "<div class='col-md-3'>";
-                                            $cartHtml .= "<img src='../img/" . $item["img"] . "' alt='Ürün Resmi' class='img-fluid'>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<div class='col-md-9'>";
-                                            $cartHtml .= "<h6 class='mb-1'>" . $item['name'] . "</h6>";
-                                            $cartHtml .= "<p class='mb-1'>Ürün Fiyatı: <strong>" . $item['price'] . "₺</strong></p>";
-                                            $cartHtml .= "<div class='input-group mb-2'>";
-                                            $cartHtml .= "<input id='quantity_" . $item['id'] . "' type='number' class='form-control' value='" . $item['quantity'] . "' min='1'>";
-                                            $cartHtml .= "<button class='btn btn-outline-secondary update-cart-btn' type='button' data-id='" . $item['id'] . "'>Güncelle</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "<button class='btn btn-danger btn-sm remove-cart-btn' type='button' data-id='" . $item['id'] . "'>Sil</button>";
-                                            $cartHtml .= "</div>";
-                                            $cartHtml .= "</div>";
-                                        }
-                                        return $cartHtml;
-                                    }
-                ?>
+            require_once('cart_functions.php');
+            if (isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
+                echo "<div class='container' id='cartContent'>";
+                echo getCartContentHtml($_SESSION["cart"]);
+                echo "</div>";
+            } else {
+                // Sepet boşsa mesaj göster
+                echo "<p class='container' id='cartContent'>Sepet Boş</p>";
+            }
+        ?>
         </div>
     </div>
 <!-- MENU BİTİŞ -->

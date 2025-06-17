@@ -1,8 +1,12 @@
 <?php
-$DB_host = "localhost";
-$DB_user = "root";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$DB_host = "";
+$DB_user = "";
 $DB_pass = "";
-$DB_name = "eticaret";
+$DB_name = "";
  try
  {
      $DBcon = new PDO("mysql:host={$DB_host};dbname={$DB_name}",$DB_user,$DB_pass);
